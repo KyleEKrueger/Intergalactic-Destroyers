@@ -30,7 +30,7 @@ public class Alien_Standard_Script : MonoBehaviour
         transform.position = pos;
     }
 
-     void OnCollisionEnter2D(Collision2D coll){
+     void OnTriggerEnter2D(Collider2D coll){
         GameObject collidedWith = coll.gameObject;
         if (collidedWith.tag == "Projectile"){
         Debug.Log("Projectile Collision Detected");

@@ -38,7 +38,7 @@ public class Projectile_Behavior : MonoBehaviour
             }
         
     }
-    void OnCollisionEnter2D(Collision2D coll){
+    void OnTriggerEnter2D(Collider2D coll){
         GameObject collidedWith = coll.gameObject;
         if (collidedWith.tag == "Alien"){
         Debug.Log("Alien Collision Detected");
