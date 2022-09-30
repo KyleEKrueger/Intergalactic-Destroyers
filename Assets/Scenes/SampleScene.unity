@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShipPrefab: {fileID: 6327525198616124397, guid: e601dac10b3a1addf92dd9de42f01329, type: 3}
   alienStandardPrefab: {fileID: 5819169741953388565, guid: 72657651497666e0fb1ebedadc4a55c5, type: 3}
+  androidShipPrefab: {fileID: 4100611511420711104, guid: 54c025eac218fb8469332ac07ed7b705, type: 3}
   playerLives: 3
   playerAxis: -35
   androidAxis: 35
@@ -310,7 +311,7 @@ Transform:
   m_GameObject: {fileID: 1587843773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 60, y: 80, z: 1}
+  m_LocalScale: {x: 65, y: 80, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

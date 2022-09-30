@@ -32,9 +32,14 @@ public class Alien_Standard_Script : MonoBehaviour
 
      void OnTriggerEnter2D(Collider2D coll){
         GameObject collidedWith = coll.gameObject;
+        //Collision is a projectile
         if (collidedWith.tag == "Projectile"){
-        Debug.Log("Projectile Collision Detected");
         Destroy( collidedWith );        
+        }
+        //Collision is a ship
+        if(collidedWith.tag == "Alien")
+        {
+            speed = -speed;
         }
     }
     

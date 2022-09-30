@@ -7,6 +7,7 @@ public class IntergalacticDestroyers : MonoBehaviour
 [Header("Set in Inspector")]
     public GameObject playerShipPrefab;
     public GameObject alienStandardPrefab;
+    public GameObject androidShipPrefab;
     public int playerLives = 3;
     public float playerAxis = -35;
     public float androidAxis = 35;
@@ -29,6 +30,11 @@ public class IntergalacticDestroyers : MonoBehaviour
         Vector2 pos = Vector2.zero;
         pos.y = playerAxis;
         playerGO.transform.position = pos;
+        //Place the Android
+        GameObject androidGO = Instantiate<GameObject>(androidShipPrefab);
+        pos = Vector2.zero;
+        pos.y = androidAxis;
+        androidGO.transform.position = pos;
         //Place the Aliens
         spawnAliens();
         
@@ -67,7 +73,6 @@ public class IntergalacticDestroyers : MonoBehaviour
     {
         //Checks if there are aliens on screen, returns true if there exists an alien
         if (GameObject.Find("Alien_Standard(Clone)") != null){
-            Debug.Log("WE FOUND AN ILLEGAL ALIEN BOYS");
            return true;
         }
         spawnAliens();

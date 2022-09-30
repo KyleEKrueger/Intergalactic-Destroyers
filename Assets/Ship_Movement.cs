@@ -8,10 +8,10 @@ public class Ship_Movement : MonoBehaviour
     public GameObject projectilePrefab; // Projectile Prefab
     public float startPositionX = 0; //Starting position for the ship on the X axis
     public float startPositionY = -35;  // Starting position for the ship on the Y axis
-    public float shipSpeed = 20f; // Speed multiplier for the ship
-    public float leftAndRightEdge = 30f; // Boundries of the playable gamespace
+    public float shipSpeed = 15f; // Speed multiplier for the ship
+    public float leftAndRightEdge = 25f; // Boundries of the playable gamespace
     public int lifeCount = 3; // Lives that the ship has
-    public float fireRate = 2f;
+    public float fireRate = 0.25f;
     float timeSinceLastShot = 0;
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class Ship_Movement : MonoBehaviour
      //--END MOVEMENT INPUT--
      //--BEGIN PROJECTILE INPUT--
         if (Input.GetKey(KeyCode.Mouse1)){
-            Invoke("fireProjectile",0);
+            fireProjectile();
         }    
     }
     
@@ -54,8 +54,26 @@ public class Ship_Movement : MonoBehaviour
         GameObject projectile = Instantiate<GameObject> ( projectilePrefab );
         Vector3 projPos = transform.position;
         projPos.y = projPos.y + 5;
-        projectile.transform.position = projPos;  
+        projectile.transform.position = projPos;
+
         }
      
     }
+
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        GameObject collidedWith = coll.gameObject;
+        //Collision is a projectile
+        if (collidedWith.tag == "ProjectileEnemy")
+        {
+            Destroy(collidedWith);
+        }
+    }
+
+    public void stopShip()
+    {
+        shipSpeed = 0;
+    }
+
 }
