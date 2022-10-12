@@ -9,7 +9,7 @@ public class Android_Ship : MonoBehaviour
     //--Ship Declarations--
     public GameObject projectilePrefab; // Projectile Prefab
     private GameObject playerShip;
-    public float fireRate = 0.25f;
+    public float fireRate = 0.75f;
 
     //--Timing Declarations--
     float timeSinceLastShot = 0;
@@ -91,5 +91,16 @@ public class Android_Ship : MonoBehaviour
         projectile.transform.position = projPos;  
         }
      
+    }
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        GameObject collidedWith = coll.gameObject;
+
+        if (collidedWith.tag == "PowerUp"){
+            Debug.Log("PowerUp Collision Detected");
+            SoundManagerScript.PlaySound("powerUp");
+            fireRate = fireRate * 0.95f;   
+            Destroy(collidedWith);  
+        }
     }
 }

@@ -11,7 +11,7 @@ public class Ship_Movement : MonoBehaviour
     public float shipSpeed = 15f; // Speed multiplier for the ship
     public float leftAndRightEdge = 25f; // Boundries of the playable gamespace
     public int lifeCount = 3; // Lives that the ship has
-    public float fireRate = 0.25f;
+    public float fireRate = 0.75f;
     float timeSinceLastShot = 0;
     // Start is called before the first frame update
     void Start()
@@ -52,6 +52,7 @@ public class Ship_Movement : MonoBehaviour
     if (Time.time > timeSinceLastShot + fireRate ){
         timeSinceLastShot = Time.time;
         GameObject projectile = Instantiate<GameObject> ( projectilePrefab );
+        SoundManagerScript.PlaySound("fire");
         Vector3 projPos = transform.position;
         projPos.y = projPos.y + 5;
         projectile.transform.position = projPos;
@@ -68,6 +69,12 @@ public class Ship_Movement : MonoBehaviour
         if (collidedWith.tag == "ProjectileEnemy")
         {
             Destroy(collidedWith);
+        }
+        if (collidedWith.tag == "PowerUp"){
+            Debug.Log("PowerUp Collision Detected");
+            SoundManagerScript.PlaySound("powerUp");
+            fireRate = fireRate * 0.95f; 
+            Destroy(collidedWith);   
         }
     }
 

@@ -103,6 +103,8 @@ MonoBehaviour:
   speed: 10
   wallWidth: 20
   floorHeight: -35
+  powerUpSpawnChance: 0.2
+  powerUpPrefab: {fileID: 4382453812775420088, guid: f49103bd8f421ccebb6a19ff8da35278, type: 3}
 --- !u!50 &1439687627868017692
 Rigidbody2D:
   serializedVersion: 4

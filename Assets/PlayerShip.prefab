@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6327525198616124396}
   - component: {fileID: 6327525198616124398}
   - component: {fileID: 2672825862644554566}
+  - component: {fileID: 7548439648649391882}
   m_Layer: 7
   m_Name: PlayerShip
   m_TagString: Player
@@ -117,3 +118,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874017a332e6fc24eafc729746226c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathTime: 3
+  deathFlashDelay: 0.25
+  tmpHealth: {fileID: 2244941425639151330, guid: 2ced3742c21f3a752ad6570bf2d0ab07, type: 3}
+  healthPrefab: {fileID: 5124849723797124205, guid: 9ab879609346b868990bd5c51b83a566, type: 3}
+  healthObjects: []
+--- !u!61 &7548439648649391882
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6327525198616124397}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8828125, y: 1}
+    newSize: {x: 0.8828125, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8828125, y: 1}
+  m_EdgeRadius: 0

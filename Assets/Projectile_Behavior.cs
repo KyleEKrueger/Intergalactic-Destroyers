@@ -42,7 +42,11 @@ public class Projectile_Behavior : MonoBehaviour
         GameObject collidedWith = coll.gameObject;
         if (collidedWith.tag == "Alien"){
         Debug.Log("Alien Collision Detected");
-        Destroy( collidedWith );        
+        Destroy( collidedWith );   
+        if (collidedWith.tag == "Player"){
+            Debug.Log("Projectile collision, has detected a player");
+            Destroy(this);
+            }     
         }
     }
 }

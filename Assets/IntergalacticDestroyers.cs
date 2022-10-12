@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class IntergalacticDestroyers : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class IntergalacticDestroyers : MonoBehaviour
     public GameObject playerShipPrefab;
     public GameObject alienStandardPrefab;
     public GameObject androidShipPrefab;
-    public int playerLives = 3;
+    int playerHealth;
     public float playerAxis = -35;
     public float androidAxis = 35;
     public float alienStartingAxis = 30;
@@ -19,14 +21,17 @@ public class IntergalacticDestroyers : MonoBehaviour
     public int alienRows = 3;
     public static int alienWidth = 3;
     public int gameWidth = 30;
+    public TMP_Text waveCounter;
+    private int wavesSpawned = 0;
     float elapsedTime;
     float timeLimit = 0.1f;
+    GameObject playerGO;
 
     // Start is called before the first frame update
     void Start()
     {
      //Place the player
-        GameObject playerGO = Instantiate<GameObject>(playerShipPrefab);
+        playerGO = Instantiate<GameObject>(playerShipPrefab);
         Vector2 pos = Vector2.zero;
         pos.y = playerAxis;
         playerGO.transform.position = pos;
@@ -37,6 +42,7 @@ public class IntergalacticDestroyers : MonoBehaviour
         androidGO.transform.position = pos;
         //Place the Aliens
         spawnAliens();
+        wavesSpawned++;
         
     }
 
@@ -48,6 +54,7 @@ public class IntergalacticDestroyers : MonoBehaviour
         {
             elapsedTime = 0;
             alienCheck();
+            playerCheck();
         }
     }
 
@@ -75,7 +82,27 @@ public class IntergalacticDestroyers : MonoBehaviour
         if (GameObject.Find("Alien_Standard(Clone)") != null){
            return true;
         }
+        wavesSpawned++;
+        waveCounter.text = wavesSpawned.ToString();
         spawnAliens();
         return false;
     }
+    bool playerCheck(){
+    if (GameObject.Find("PlayerShip(Clone)") != null){
+        return true;    
+    }
+    Invoke("restartGame",4);
+    return false;
+    
+}
+    private void restartGame(){
+        SceneManager.LoadScene("Title");
+}
+    
+    //Code to get player health inside of my Main Camera object
+
+//   public void getPlayerHealth(){
+//    Health_and_Status playerhealthcomp =  playerGO.GetComponent<Health_and_Status>();
+//    playerHealth =  playerhealthcomp.getHealth();
+//}
 }

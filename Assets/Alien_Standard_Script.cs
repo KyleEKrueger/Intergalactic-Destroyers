@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Alien_Standard_Script : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class Alien_Standard_Script : MonoBehaviour
     public float speed = 10;
     public float wallWidth = 30;
     public float floorHeight = -35;
+    public float powerUpSpawnChance = 0.2f;
+    private float powerUpRoll;
+    public GameObject powerUpPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,12 @@ public class Alien_Standard_Script : MonoBehaviour
         GameObject collidedWith = coll.gameObject;
         //Collision is a projectile
         if (collidedWith.tag == "Projectile"){
+        powerUpRoll = Random.value;
+        if (powerUpRoll <= powerUpSpawnChance){
+           GameObject powerUp = Instantiate<GameObject>(powerUpPrefab);
+            Vector2 pos = transform.position;
+           powerUp.transform.position = pos;
+        }
         Destroy( collidedWith );        
         }
         //Collision is a ship
