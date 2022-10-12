@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2672825862644554566, guid: e601dac10b3a1addf92dd9de42f01329, type: 3}
+      propertyPath: health
+      value: 600000
+      objectReference: {fileID: 0}
     - target: {fileID: 6327525198616124396, guid: e601dac10b3a1addf92dd9de42f01329, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -92,10 +96,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4826881389198704090, guid: ef6c6e1689829f9459e4dc5e4d9880b4, type: 3}
-  startPositionX: 0
-  startPositionY: 35
-  shipSpeed: 15
-  leftAndRightEdge: 25
-  lifeCount: 3
   fireRate: 0.25
   inputDelay: 2

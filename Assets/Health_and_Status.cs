@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 public class Health_and_Status : MonoBehaviour
 
 {
+    [Header("Set in Inspector")]
     //This script is to provide information on any powerups and health this object may have.
 
     Component shipController;
     public float deathTime = 3;
     public float deathFlashDelay = .25f;
     public TMP_Text tmpHealth;
-    public static int health = 3; // Amount of hits one can take before dying
+    public int health = 3; // Amount of hits one can take before dying
     public GameObject healthPrefab;
     Vector2 pos;
     public GameObject[] healthObjects;
@@ -69,9 +70,7 @@ public class Health_and_Status : MonoBehaviour
 
         }
     }
-    public static int getHealth(){
-        return health;
-    }
+
     public void destroyHealthSprite(){
         Debug.Log("DestroyHealth Entered");
         Destroy(healthObjects[health]);
