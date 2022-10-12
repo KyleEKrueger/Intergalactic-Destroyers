@@ -8,6 +8,8 @@ TagManager:
   - Alien
   - Android
   - ProjectileEnemy
+  - PowerUp
+  - Sprite
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Projectile
   - Alien
   - ProjectileEnemy
-  - 
+  - UISprite
   - 
   - 
   - 
